@@ -1,0 +1,191 @@
+﻿
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Pages.master.cs" Inherits="WebApplication1.MasterPages.Pages" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content=""/>
+    <meta name="author" content="EJAS"/>
+    <title id="hometitle">EJAS - Home</title>
+    <link rel="icon" href="../favicon.ico"/>
+    <link href="../css/enaveed.css" rel="stylesheet" />
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="../css/blog.css" rel="stylesheet" />
+    
+</head>
+<body class="container">
+    <form id="form1" runat="server">
+
+        <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item active" href="../Pages/home.aspx">Home</a>
+            <% foreach(var v in pages)
+                {
+                    if(v.pageURL=="")
+                        Response.Write("<a class=\"blog-nav-item\" href=\""+"../UserPages/"+v.pageName+".aspx"+"\">"+v.displayName+"</a>");
+                    else
+                        Response.Write("<a class=\"blog-nav-item\" href=\""+v.pageURL+"\""+v.pageName+".aspx"+"\">"+v.displayName+"</a>");
+                    
+                }if(Convert.ToInt32(Session["adminid"])>0)
+                    Response.Write("<a class=\"blog-nav-item\" href=\"../cpanelPages/ControlPanel.aspx\"> Admin Panel </a>");
+
+               %>
+          
+          <a class="blog-nav-item" href="../Pages/About.aspx">About</a>
+            <a class="blog-nav-item" href="../Pages/Contact.aspx">Contact</a>
+            <span class="login">
+                <asp:Label ID="lblHelloText" runat="server"></asp:Label>
+            <asp:Button ID="btnLoginb" runat="server" Text="Login" OnClick="btnLogin_Click"></asp:Button>
+            </span>
+        </nav>
+      </div>
+    </div>
+
+        <!-- /.BODY STARTS -->
+        
+        <asp:Login ID="Login1" CssClass="login" runat="server" Visible="false"
+             OnAuthenticate="Login1_Authenticate" VisibleWhenLoggedIn="False"
+            CreateUserText="Registration" CreateUserUrl="~/Pages/Registration.aspx" >
+            <LayoutTemplate>
+                <table cellpadding="1" cellspacing="0" style="border-collapse:collapse;">
+                    <tr>
+                        <td>
+                            <table cellpadding="0">
+                                <tr>
+                                    <td align="center" colspan="2">Log In</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">User Name:</asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:TextBox ID="UserName" runat="server"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="User Name is required." ToolTip="User Name is required." ValidationGroup="ctl00$Login1">*</asp:RequiredFieldValidator>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Password:</asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="ctl00$Login1">*</asp:RequiredFieldValidator>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <asp:CheckBox ID="RememberMe" runat="server" Text="Remember me next time." />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center" colspan="2" style="color:Red;">
+                                        <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" colspan="2">
+                                        
+                                        <asp:Button ID="LoginButton" runat="server" CommandName="Login" OnClick="LoginButton_Click" Text="Log In" ValidationGroup="ctl00$Login1" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <asp:HyperLink ID="CreateUserLink" runat="server" NavigateUrl="../Pages/Registration.aspx">Register</asp:HyperLink>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </LayoutTemplate>
+        </asp:Login>
+    <div class="container">
+
+      <div class="blog-header">
+          <% Response.Write("<h1 class=\"blog-title\">"+ webiste_title.ToUpper()+"</h1><p class=\"lead blog-description\">"+tagline+ "</p>"); %>
+        
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-9 blog-main">
+            <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="navigation" runat="server"></asp:ContentPlaceHolder>
+
+        
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 blog-sidebar">
+          
+            <div class="sidebar-module sidebar-module-inset">
+            <h4>Categories</h4>
+            <% foreach (var i in categories)
+                {
+                    Response.Write("<p><a href=\"CategoryViewPosts.aspx?catid="+i.categoryID+"&category="+i.categoryName+"\">"+i.categoryName+"</a></p>");
+                } %>
+          </div>
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>About</h4>
+            <p><%=about %></p>
+          </div>
+            <%string tasks="";
+                if(Convert.ToInt32(Session["adminid"])>0)
+                    tasks="<div class=\"sidebar-module sidebar-module-inset\"><h4>Tasks</h4><p><a href=\"../cpanelPages/NewPostbyDB.aspx\">Create a Post</a></p><p><a href=\"../cpanelPages/NewPage.aspx\">Create a Page</a></p></div>";
+                Response.Write(tasks);
+                %>
+          <div class="sidebar-module">
+            <h4>Archives</h4>
+            <ol class="list-unstyled">
+              <%
+                  foreach(var v in months)
+                  {
+                      Response.Write("<li><a href=\"#\">"+v+"</a></li>");
+                  }
+                  
+                %>
+                
+            </ol>
+          </div>
+          <div class="sidebar-module">
+            <h4>Elsewhere</h4>
+            <ol class="list-unstyled">
+              <li><a href="<%=github %>"">GitHub</a></li>
+              <li><a href="<%=twitter %>">Twitter</a></li>
+              <li><a href="<%=fb %>">Facebook</a></li>
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </div>
+        <!-- /.BODY ENDS -->
+
+    <footer class="blog-footer">
+      <p><a href="<% Response.Write("http://"+url); %>"><% Response.Write(company); %></a>.</p>
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+        <script src="../js/jquery-1.11.1.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    </form>
+</body>
+</html>

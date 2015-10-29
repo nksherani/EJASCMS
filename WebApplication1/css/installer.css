@@ -1,0 +1,21 @@
+﻿.blog-masthead {
+  background-color: #428bca;
+  -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+          box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+}
+        .names{
+            width:350px;
+            background-color:aquamarine;
+            font-size:larger;
+            font-family:'Times New Roman', Times, serif;
+        }
+        .button{
+            background-color:darkblue;
+            color:white;
+            font-size:x-large;
+        }
+        p{
+            padding:0;
+            margin:0;
+
+        }

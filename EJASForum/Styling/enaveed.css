@@ -1,0 +1,39 @@
+﻿.enaveed {
+    margin:0 auto;
+    font-size:2em;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:darkblue;
+}
+.container{
+    width:100%;
+    margin:0;
+    padding:0;
+}
+.topNavbar{
+    //float:left;
+    width:500px;
+    list-style:none;
+    font:200;
+}
+.cpanelSidebarButtons{
+    width:100%;
+    padding-left:30px;
+}
+div{
+    margin:0;
+    padding:0;
+}
+body{
+    margin:0;
+    padding:0;
+}
+p{
+    margin:0;
+    padding:0;
+}
+.login{
+    float:right;
+}
+table{
+//    display:none;
+}

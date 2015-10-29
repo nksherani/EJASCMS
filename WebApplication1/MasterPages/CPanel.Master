@@ -1,0 +1,229 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="CPanel.Master.cs" Inherits="WebApplication1.MasterPages.cpanel" %>
+
+<%@ Register Assembly="DevExpress.Web.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="icon" href="../favicon.ico"/>
+
+    <title>Dashboard</title>
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="../css/dashboard.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+          <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Project name</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                    <span class="navbar-form navbar-right">
+                        <asp:TextBox class="form-control" placeholder="Search..." runat="server"></asp:TextBox>
+                    </span>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid" style="background-color:antiquewhite;">
+            <div class="row">
+                
+                <div style="float:left">
+                <%--sidebar starts--%>
+                <div class="col-sm-3 col-md-2 sidebar">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Posts
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <asp:Button CssClass="cpanelSidebarButtons" ID="btnAllPosts" runat="server" Text="All Posts" OnClick="btnAllPosts_Click" >
+                                        </asp:Button>
+                                    <asp:Button CssClass="cpanelSidebarButtons" ID="btnCreatePost" runat="server" Text="Create Post" OnClick="btnCreatePost_Click" >
+                                        </asp:Button>
+                                    <asp:Button CssClass="cpanelSidebarButtons" ID="btnPostCategories" runat="server" Text="Post Categories" OnClick="btnPostCategories_Click" >
+                                        </asp:Button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Pages
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+                                    <asp:Button CssClass="cpanelSidebarButtons" ID="Button4" runat="server" Text="All Pages" >
+                                        </asp:Button>
+                                    <asp:Button CssClass="cpanelSidebarButtons" ID="Button5" runat="server" Text="Create Page">
+                                        </asp:Button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingThree">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Gallery
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                <div class="panel-body">
+                                    <asp:Button CssClass="cpanelSidebarButtons" ID="Button6" runat="server" Text="View Gallery">
+                                        </asp:Button>
+                                    <asp:Button CssClass="cpanelSidebarButtons" ID="Button7" runat="server" Text="Upload Media">
+                                        </asp:Button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingFour">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Comments
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                <div class="panel-body">
+                                    <asp:Button CssClass="cpanelSidebarButtons" ID="Button8" runat="server" Text="View All Comments">
+                                        </asp:Button>
+                                    <asp:Button CssClass="cpanelSidebarButtons" ID="Button9" runat="server" Text="View New Comments">
+                                        </asp:Button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingFive">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">Appearance
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                                <div class="panel-body">
+                                    <asp:Button CssClass="cpanelSidebarButtons" ID="Button10" runat="server" Text="Themes" >
+                                        </asp:Button>
+                                    <asp:Button CssClass="cpanelSidebarButtons" ID="Button11" runat="server" Text="Widgets">
+                                        </asp:Button>
+                                    <asp:Button CssClass="cpanelSidebarButtons" ID="Button12" runat="server" Text="Color Scheme">
+                                        </asp:Button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingSeven">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">Users
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
+                                <div class="panel-body">
+                                    <asp:Button CssClass="cpanelSidebarButtons" ID="Button15" runat="server" Text="View All Users">
+                                        </asp:Button>
+                                    <asp:Button CssClass="cpanelSidebarButtons" ID="Button16" runat="server" Text="Edit a User">
+                                        </asp:Button>
+                                    <asp:Button CssClass="cpanelSidebarButtons" ID="Button17" runat="server" Text="View Your Profile">
+                                        </asp:Button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingSix">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">Plugins
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+                                <div class="panel-body">
+                                    <asp:Button CssClass="cpanelSidebarButtons" ID="Button13" runat="server" Text="Installed Plugins">
+                                        </asp:Button>
+                                    <asp:Button CssClass="cpanelSidebarButtons" ID="Button14" runat="server" Text="Install New Plugin">
+                                        </asp:Button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingEight">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">Settings
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
+                                <div class="panel-body">
+                                    <asp:Button CssClass="cpanelSidebarButtons" ID="Button18" runat="server" Text="General" >
+                                        </asp:Button>
+                                    <asp:Button CssClass="cpanelSidebarButtons" ID="Button19" runat="server" Text="Posts & Pages">
+                                        </asp:Button>
+                                    <asp:Button CssClass="cpanelSidebarButtons" ID="Button20" runat="server" Text="Gallery">
+                                        </asp:Button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <%-- sidebar ends --%>
+                    </div>
+                <div style="float:left;margin-left:228px; padding:20px 20px 20px 20px;">
+                <%--main container starts--%>
+                <asp:ContentPlaceHolder ID="mainContainer" runat="server">
+
+                </asp:ContentPlaceHolder>
+                <%--main container ends--%>
+                    </div>
+            </div>
+        </div>
+
+    </form>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../js/holder.min.js"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+    <asp:ContentPlaceHolder ID="bodyscript" runat="server" ></asp:ContentPlaceHolder>
+</body>
+</html>

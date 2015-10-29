@@ -1,0 +1,63 @@
+F:\se projects\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
+F:\se projects\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll.licenses
+F:\se projects\WebApplication1\WebApplication1\bin\WebApplication1.dll.config
+F:\se projects\WebApplication1\WebApplication1\bin\WebApplication1.dll
+F:\se projects\WebApplication1\WebApplication1\bin\WebApplication1.pdb
+F:\se projects\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
+F:\se projects\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\WebApplication1.dll.config
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\WebApplication1.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\WebApplication1.pdb
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll.licenses
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\DevExpress.Data.v15.1.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\DevExpress.Office.v15.1.Core.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\DevExpress.Printing.v15.1.Core.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\DevExpress.RichEdit.v15.1.Core.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\DevExpress.SpellChecker.v15.1.Core.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\DevExpress.Web.ASPxHtmlEditor.v15.1.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\DevExpress.Web.ASPxSpellChecker.v15.1.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\DevExpress.Web.ASPxThemes.v15.1.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\DevExpress.Web.v15.1.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\DevExpress.Data.v15.1.xml
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\DevExpress.Office.v15.1.Core.xml
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\DevExpress.Printing.v15.1.Core.xml
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\DevExpress.RichEdit.v15.1.Core.xml
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\DevExpress.SpellChecker.v15.1.Core.xml
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\DevExpress.Web.ASPxHtmlEditor.v15.1.xml
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\DevExpress.Web.ASPxSpellChecker.v15.1.xml
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\DevExpress.Web.v15.1.xml
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\de\DevExpress.Data.v15.1.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\es\DevExpress.Data.v15.1.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\ja\DevExpress.Data.v15.1.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\ru\DevExpress.Data.v15.1.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\de\DevExpress.Office.v15.1.Core.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\es\DevExpress.Office.v15.1.Core.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\ja\DevExpress.Office.v15.1.Core.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\ru\DevExpress.Office.v15.1.Core.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\de\DevExpress.Printing.v15.1.Core.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\es\DevExpress.Printing.v15.1.Core.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\ja\DevExpress.Printing.v15.1.Core.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\ru\DevExpress.Printing.v15.1.Core.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\de\DevExpress.RichEdit.v15.1.Core.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\es\DevExpress.RichEdit.v15.1.Core.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\ja\DevExpress.RichEdit.v15.1.Core.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\ru\DevExpress.RichEdit.v15.1.Core.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\de\DevExpress.Web.ASPxHtmlEditor.v15.1.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\es\DevExpress.Web.ASPxHtmlEditor.v15.1.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\ja\DevExpress.Web.ASPxHtmlEditor.v15.1.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\ru\DevExpress.Web.ASPxHtmlEditor.v15.1.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\de\DevExpress.Web.ASPxSpellChecker.v15.1.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\es\DevExpress.Web.ASPxSpellChecker.v15.1.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\ja\DevExpress.Web.ASPxSpellChecker.v15.1.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\ru\DevExpress.Web.ASPxSpellChecker.v15.1.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\de\DevExpress.Web.v15.1.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\es\DevExpress.Web.v15.1.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\ja\DevExpress.Web.v15.1.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\ru\DevExpress.Web.v15.1.resources.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\EntityFramework.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.dll
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\EntityFramework.xml
+E:\CIS NED\3.TE\SEM6\2. Software Engineering (SE)\Project\WebApplication1\WebApplication1\bin\EntityFramework.SqlServer.xml
