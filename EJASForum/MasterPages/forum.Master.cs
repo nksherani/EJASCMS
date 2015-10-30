@@ -15,6 +15,7 @@ namespace EJASForum
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["userid"] = 0;
             if (IsPostBack)
                 return;
             SqlConnection con1 = new SqlConnection(ConfigurationManager.ConnectionStrings["globaldb"].ConnectionString);
@@ -72,8 +73,6 @@ namespace EJASForum
                 if (rdr["role"].ToString().ToLower().Equals("admin"))
                     Session["admin"] = true;
                 Session["userid"] = Convert.ToInt16(rdr["UserID"]);
-                //globaldata.userid = Convert.ToInt16(rdr["UserID"]);
-                //globaldata.username = (rdr["Username"].ToString());
                 Session["username"] = (rdr["Username"].ToString());
             }
             con1.Close();
@@ -88,7 +87,7 @@ namespace EJASForum
                 btnShowLogin.Text = "Logout";
                 Login1.Visible = false;
                 if (Convert.ToBoolean(Session["admin"]))
-                    Response.Redirect("../cpanelPages/Main.aspx");
+                    Response.Redirect("../Pages/home.aspx");
             }
         }
     }

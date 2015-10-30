@@ -4,24 +4,25 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
     <% foreach (var v in EJASForum.CategoryList) {
-            Response.Write("<h2><a href=\"CategoryView.aspx?category="+v.CategoryTitle+"\">"+v.CategoryTitle+"</a></h2>");
+            Response.Write("<div class=whole-category><div class=\"category\"><h2 ><a href=\"CategoryView.aspx?category="+v.CategoryTitle+"\">"+v.CategoryTitle+"</a></h2></div>");
             foreach(var sec in v.SectionList)
             {
-                Response.Write("<h3><a id="+sec.SectionId+" class='sectionLink' href=\"SectionView.aspx?sectionid="+sec.SectionId+"&thread=1&category="+v.CategoryTitle+"&section="+sec.SectionTitle+"\">"+sec.SectionTitle+"</a></h3>");
+                Response.Write("<div class=\"section\"><h3><a id="+sec.SectionId+" class='sectionLink' href=\"SectionView.aspx?sectionid="+sec.SectionId+"&thread=1&category="+v.CategoryTitle+"&section="+sec.SectionTitle+"\">"+sec.SectionTitle+"</a></h3></div>");
                 Nthreads = sec.GetNThreads(1, 10);
                 foreach(var thr in Nthreads)
                 {
 
-                    //Response.Write("<p><a href=\"ThreadView.aspx?ThreadId="+thr.ThreadID+"\">" + thr.ThreadTitle + "</a></p>");
-                    Response.Write("<h3><a href=\"ThreadView.aspx?threadid="+thr.ThreadID+"&reply=1&section="+sec.SectionTitle+"&category="+v.CategoryTitle+"\">"+thr.ThreadTitle+"</a></h3>");
+                    Response.Write("<div class=threadtitle><h3><a href=\"ThreadView.aspx?threadid="+thr.ThreadID+"&reply=1&section="+sec.SectionTitle+"&category="+v.CategoryTitle+"\">"+thr.ThreadTitle+"</a></h3></div>");
                     thr.getAuthor();
 
-                    Response.Write("<p>Dated:"+thr.DateModified+"</p>");
-                    Response.Write("<p>Author: "+thr.Author+"</p>");
+                    Response.Write("<div class=thread-body>"+thr.ThreadBody+"</div>");
                     
+                    Response.Write("<div class=meta-data><p>Dated:"+thr.DateModified+"</p>");
+                    Response.Write("<p>Author: "+thr.Author+"</p></div>");
+
                 }
 
-            }
+            }Response.Write("</div>");
         } %>
 </asp:Content>
 <asp:Content runat="server" ContentPlaceHolderID="bodyScript">

@@ -17,6 +17,7 @@ namespace EJASForum.classes
         public int? CreatorId;
         public int? Published;
         public List<ForumCategory> CategoryList;
+        public string About { get; set; }
 
         public Forum()
         {
@@ -35,6 +36,7 @@ namespace EJASForum.classes
             {
                 ForumId = Convert.ToInt32(rdr["ForumId"]);
                 ForumTitle = rdr["ForumTitle"].ToString();
+                About = rdr["About"].ToString();
                 CategoryCount = Convert.ToInt32(rdr["CategoryCount"]);
                 if(!(rdr["DateCreated"]==DBNull.Value))
                     DateCreated = Convert.ToDateTime(rdr["DateCreated"]);

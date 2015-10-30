@@ -20,6 +20,52 @@ namespace EJASForum.classes
         public string Author;
         public DateTime? DatePublished;
 
+        //parametrized constructor
+        public ForumThread(string title,string body,string sec,int published,int creator)
+        {
+            string q1 = "select SectionId from f_section where SectionTitle='" + sec + "'";
+            SqlConnection con1 = new SqlConnection(ConfigurationManager.ConnectionStrings["globaldb"].ConnectionString);
+            SqlCommand com1 = new SqlCommand(q1, con1);
+            con1.Open();
+            SectionId = Convert.ToInt32(com1.ExecuteScalar());
+            con1.Close();
+
+            ThreadTitle = title;
+            ThreadBody = body;
+            DateCreated = DateTime.Now;
+            DateModified = DateTime.Now;
+            Published = published;
+            if (published == 1)
+                DatePublished = DateTime.Now;
+            CreatorId = creator;
+        }
+
+        public ForumThread()
+        {
+        }
+
+        //save thread to db
+        public void CreateThreadintoDb()
+        {
+            string q1 = "insert into f_Thread values(@title,@body,@secid,@dtc,@dtm,@creator,@published,@dtp)";
+            SqlConnection con1 = new SqlConnection(ConfigurationManager.ConnectionStrings["globaldb"].ConnectionString);
+            SqlCommand com1 = new SqlCommand(q1, con1);
+            com1.Parameters.AddWithValue("@title", ThreadTitle);
+            com1.Parameters.AddWithValue("@creator", CreatorId);
+            com1.Parameters.AddWithValue("@dtc", DateCreated);
+            com1.Parameters.AddWithValue("@dtm", DateModified);
+            com1.Parameters.AddWithValue("@published", Published);
+            if (Published == 1)
+                com1.Parameters.AddWithValue("@dtp", DatePublished);
+            else
+                com1.Parameters.AddWithValue("@dtp", DBNull.Value);
+            com1.Parameters.AddWithValue("@body", ThreadBody);
+            com1.Parameters.AddWithValue("@secid", SectionId);
+            con1.Open();
+            com1.ExecuteReader();
+            con1.Close();
+        }
+
         public void getAuthor()
         {
             SqlConnection con1 = new SqlConnection(ConfigurationManager.ConnectionStrings["globaldb"].ConnectionString);

@@ -13,13 +13,11 @@ namespace EJASForum.classes
         //create tables
         public static void CreateTables()
         {
-            string ddl_f_category = "CREATE TABLE [dbo].[f_category] ([CategoryId]    INT NOT NULL, [CategoryTitle] VARCHAR(100) NULL, [SectionCount] INT NULL, [CreatorID]     INT NULL," +
-    "[DateCreated]   DATETIME NULL,   [DateModified]  DATETIME NULL, [ForumId]       INT NULL,   [Published]     INT NULL," +
-    "[DatePublished] DATETIME NULL,    PRIMARY KEY CLUSTERED([CategoryId] ASC));";
+            string ddl_f_category = "CREATE TABLE [dbo].[f_category] ( [CategoryId] INT IDENTITY (1, 1) NOT NULL, [CategoryTitle] VARCHAR (100) NULL, [SectionCount] INT NULL, [CreatorID] INT NULL, [DateCreated] DATETIME NULL, [DateModified] DATETIME NULL, [ForumId] INT NULL, [Published] INT NULL, [DatePublished] DATETIME NULL, [Description] TEXT NULL, PRIMARY KEY CLUSTERED ([CategoryId] ASC) );";
             create_table(ddl_f_category, "f_category");
 
             string ddl_f_forumdetails = "CREATE TABLE [dbo].[f_forumdetails] ([ForumId] INT NOT NULL IDENTITY, [ForumTitle] VARCHAR(100) NULL,    [CategoryCount]" +
-        "INT NULL, [DateCreated]   DATETIME NULL, [CreatorID]     INT NULL, [Published] INT NULL,"+ " [About] VARCHAR(500) NULL, "
+        "INT NULL, [DateCreated]   DATETIME NULL, [CreatorID]     INT NULL, [Published] INT NULL," + " [About] VARCHAR(500) NULL, "
         + " PRIMARY KEY CLUSTERED([ForumId] ASC));";
             create_table(ddl_f_forumdetails, "f_forumdetails");
 
@@ -28,15 +26,10 @@ namespace EJASForum.classes
     "[DateModified]  DATETIME NULL, [Published]     INT NULL, [DatePublished] DATETIME NULL, PRIMARY KEY CLUSTERED([ReplyId] ASC));";
             create_table(ddl_f_reply, "f_reply");
 
-            string ddl_f_section = "CREATE TABLE [dbo].[f_section] ([SectionId]     INT NOT NULL, [SectionTitle]  VARCHAR(100) NULL, [ThreadCount]" +
-        "INT NULL, [DateCreated]   DATETIME NULL, [DateModified]  DATETIME NULL, [CreatorId]     INT NULL, [CategoryID]    INT NULL," +
-    "[Published]     INT NULL, [DatePublished] DATETIME NULL, PRIMARY KEY CLUSTERED([SectionId] ASC));";
+            string ddl_f_section = "CREATE TABLE [dbo].[f_section] ( [SectionId] INT IDENTITY (1, 1) NOT NULL, [SectionTitle] VARCHAR (100) NULL, [ThreadCount] INT NULL, [DateCreated] DATETIME NULL, [DateModified] DATETIME NULL, [CreatorId] INT NULL, [CategoryID] INT NULL, [Published] INT NULL, [DatePublished] DATETIME NULL, [Description] TEXT NULL, PRIMARY KEY CLUSTERED ([SectionId] ASC) );";
             create_table(ddl_f_section, "f_section");
 
-            string ddl_f_Thread = "CREATE TABLE [dbo].[f_Thread] ([ThreadId]      INT NOT NULL," +
-    "[ThreadTitle]   VARCHAR(100)  NULL, [ThreadBody]    VARCHAR(5000) NULL, [SectionId] INT NULL," +
-    "[DateCreated]   DATETIME NULL,  [DateModified]  DATETIME NULL, [CreatorID]     INT NULL, [Published] INT NULL," +
-    "[DatePublished] DATETIME NULL, PRIMARY KEY CLUSTERED([ThreadId] ASC));";
+            string ddl_f_Thread = "CREATE TABLE [dbo].[f_Thread] ( [ThreadId] INT IDENTITY (1, 1) NOT NULL, [ThreadTitle] VARCHAR (100) NULL, [ThreadBody] VARCHAR (5000) NULL, [SectionId] INT NULL, [DateCreated] DATETIME NULL, [DateModified] DATETIME NULL, [CreatorID] INT NULL, [Published] INT NULL, [DatePublished] DATETIME NULL, PRIMARY KEY CLUSTERED ([ThreadId] ASC) );";
             create_table(ddl_f_Thread, "f_Thread");
 
         }
@@ -79,12 +72,12 @@ namespace EJASForum.classes
         }
 
         //Create Forum Details/About
-        public static void ForumDetailsStarting(string title,string about)
+        public static void ForumDetailsStarting(string title, string about)
         {
             SqlConnection con1 = new SqlConnection(ConfigurationManager.ConnectionStrings["globaldb"].ConnectionString);
             string q1 = "INSERT INTO f_forumdetails values('" + title + "',0,@dt,@creatorid,1,'" + about + "')";
             SqlCommand com1 = new SqlCommand(q1, con1);
-            com1.Parameters.AddWithValue("@dt",DateTime.Now);
+            com1.Parameters.AddWithValue("@dt", DateTime.Now);
             com1.Parameters.AddWithValue("@creatorid", 0);
             con1.Open();
             com1.ExecuteReader();
@@ -126,7 +119,7 @@ namespace EJASForum.classes
         }
 
         //dropping tables for uninstalling
-        public static void DropTables(string pagepath,string folder)
+        public static void DropTables(string pagepath, string folder)
         {
             SqlConnection con1 = new SqlConnection(ConfigurationManager.ConnectionStrings["globaldb"].ConnectionString);
             string q1 = "drop table f_category; drop table f_forumdetails; drop table f_reply; drop table f_section; drop table f_Thread;";
@@ -139,12 +132,12 @@ namespace EJASForum.classes
                 con1.Close();
                 HttpContext.Current.Response.Write("Tables deleted");
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 HttpContext.Current.Response.Write(ex.Message);
                 con1.Close();
             }
-            
+
 
             q1 = "delete from pages where PageURL='" + pagepath + "'";
             com1 = new SqlCommand(q1, con1);
