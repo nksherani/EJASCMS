@@ -15,7 +15,12 @@ namespace EJASForum.Pages
         {
             if (IsPostBack)
                 return;
-
+            if (Convert.ToInt32(Session["userid"]) > 0)
+                Response.Redirect("home.aspx");
+            if(Request.QueryString["error"]!=null)
+            {
+                Response.Write("<h3>You Must Be Logged In To Perform this Task");
+            }
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)

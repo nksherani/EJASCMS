@@ -1,26 +1,25 @@
 ﻿<%@ Page validateRequest="false" Title="" Language="C#" MasterPageFile="../MasterPages/forum.Master" AutoEventWireup="true" CodeFile="ThreadView.aspx.cs" Inherits="EJASForum.Pages.ThreadView" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="../Styling/jquery-te-1.4.0.css" rel="stylesheet" />
-    <link href="../Styling/demo.css" rel="stylesheet" />
+    <link href="../Styling/Forum.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="bodyTop" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
-    <% Response.Write("<h2><a href=\"CategoryView.aspx?category="+category+"\">"+category+"</a></h2>");
-        Response.Write("<h3><a href=\"SectionView.aspx?sectionid="+thr.SectionId+"&category="+category+"&section="+section+"\">"+section+"</a></h3>");
-        Response.Write("<h3><a href=\"ThreadView.aspx?threadid="+thr.ThreadID+"&reply=1&section="+section+"&category="+category+"\">"+thr.ThreadTitle+"</a></h3>");
-        Response.Write("<p>"+thr.ThreadBody+"</p>");
+    <% Response.Write("<div class=whole-category><div class=\"category\"><h2><a href=\"CategoryView.aspx?category="+category+"\">"+category+"</a></h2></div>");
+        Response.Write("<div class=\"section\"><h3><a href=\"SectionView.aspx?sectionid="+thr.SectionId+"&category="+category+"&section="+section+"\">"+section+"</a></h3></div>");
+        Response.Write("<div class=threadtitle><h3><a href=\"ThreadView.aspx?threadid="+thr.ThreadID+"&reply=1&section="+section+"&category="+category+"\">"+thr.ThreadTitle+"</a></h3></div>");
+        Response.Write("<div class=thread-body><p>"+thr.ThreadBody+"</p></div></div>");
          %>
     <div>
         <%//display replies
             foreach(var r in NReplies)
             {
                 if (r.ReplierId == Convert.ToInt32(Session["userid"]))
-                    Response.Write("<a href=\"MyProfile.aspx?userid=" + r.ReplierId + "\">"+r.Replier+"</a>");
+                    Response.Write("<div class=whole-comment><a href=\"MyProfile.aspx?userid=" + r.ReplierId + "\">"+r.Replier+"</a>");
                 else
                     Response.Write("<a href=\"OthersProfiles.aspx?userid=" + r.ReplierId + "\">"+r.Replier+"</a><br/ >");
                 Response.Write(r.DateModified);
-                Response.Write("<p>" + r.ReplyBody + "</p>");
+                Response.Write("<p>" + r.ReplyBody + "</p></div>");
             }
             int next = Convert.ToInt32(reply)+10;
             int back = Convert.ToInt32(reply)-10;

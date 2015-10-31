@@ -15,7 +15,6 @@ namespace EJASForum
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["userid"] = 0;
             if (IsPostBack)
                 return;
             SqlConnection con1 = new SqlConnection(ConfigurationManager.ConnectionStrings["globaldb"].ConnectionString);
@@ -31,6 +30,13 @@ namespace EJASForum
             }
 
             con1.Close();
+            HttpCookie cookie = Request.Cookies["ejas_login"];
+            if(cookie!=null)
+            {
+                Session["userid"] = cookie["userid"];
+                btnShowLogin.Text = "Logout";
+                lblHelloText.Text = "Hello "+cookie["username"].ToString();
+            }
         }
 
         protected void btnShowLogin_Click(object sender, EventArgs e)
@@ -46,15 +52,19 @@ namespace EJASForum
             else
             {
                 //logout
+                Session.RemoveAll();
+                Session.Clear();
+                //btnAdmin.Visible = false;
+                btnShowLogin.Text = "Login";
+                lblHelloText.Text = "Hello Guest";
                 HttpCookie cookie = Request.Cookies["ejas_login"];
                 if (cookie != null)
                 {
                     cookie.Expires = DateTime.Now.AddDays(-1);
                     Response.Cookies.Add(cookie);
-                    Session["userid"] = 0;
-                    Session["username"] = "";
-                    btnShowLogin.Text = "Login";
+                    
                 }
+                Response.Redirect("../Pages/home.aspx");
             }
         }
 
@@ -87,8 +97,16 @@ namespace EJASForum
                 btnShowLogin.Text = "Logout";
                 Login1.Visible = false;
                 if (Convert.ToBoolean(Session["admin"]))
+                {
                     Response.Redirect("../Pages/home.aspx");
+                    //btnAdmin.Visible = true;
+                }
             }
+        }
+
+        protected void btnAdmin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../CPanel/CpanelMain.aspx");
         }
     }
 }

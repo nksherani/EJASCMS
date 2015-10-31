@@ -9,14 +9,15 @@
             {
                 Response.Write("<div class=\"section\"><h3><a id="+sec.SectionId+" class='sectionLink' href=\"SectionView.aspx?sectionid="+sec.SectionId+"&thread=1&category="+v.CategoryTitle+"&section="+sec.SectionTitle+"\">"+sec.SectionTitle+"</a></h3></div>");
                 Nthreads = sec.GetNThreads(1, 10);
-                foreach(var thr in Nthreads)
+                Response.Write("<div><h6><a href=CreateThread.aspx?sec="+sec.SectionTitle.Replace(" ","+")+"&cat="+v.CategoryTitle.Replace(" ","+")+">Create a new Thread in this Section</a></h6></div>");
+                foreach (var thr in Nthreads)
                 {
 
                     Response.Write("<div class=threadtitle><h3><a href=\"ThreadView.aspx?threadid="+thr.ThreadID+"&reply=1&section="+sec.SectionTitle+"&category="+v.CategoryTitle+"\">"+thr.ThreadTitle+"</a></h3></div>");
                     thr.getAuthor();
 
                     Response.Write("<div class=thread-body>"+thr.ThreadBody+"</div>");
-                    
+
                     Response.Write("<div class=meta-data><p>Dated:"+thr.DateModified+"</p>");
                     Response.Write("<p>Author: "+thr.Author+"</p></div>");
 

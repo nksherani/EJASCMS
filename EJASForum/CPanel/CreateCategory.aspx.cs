@@ -23,8 +23,8 @@ namespace EJASForum.CPanel
                 published = 1;
             else
                 published = 0;
-            Session["userid"] = 1;
-            Session["forumid"] = 1;
+            //Session["userid"] = 1;
+            //Session["forumid"] = 1;
             if(!string.IsNullOrEmpty(txtDesc1.Text))
                 category = new ForumCategory(txtTitle1.Text,Convert.ToInt32(Session["userid"]),published,Convert.ToInt32(Session["forumid"]),txtDesc1.Text);
             else

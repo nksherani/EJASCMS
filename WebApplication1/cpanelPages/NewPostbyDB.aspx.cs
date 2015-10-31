@@ -16,7 +16,7 @@ namespace WebApplication1.Pages
         public static bool posted;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["userid"] = 1;
+            //Session["userid"] = 1;
             if (IsPostBack)
                 return;
             populateCategoryList();

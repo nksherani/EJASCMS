@@ -11,7 +11,10 @@ namespace WebApplication1.MasterPages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (IsPostBack)
+                return;
+            if (!Convert.ToBoolean(Session["admin"]))
+                Response.Redirect("../abc.aspx");
         }
 
         protected void Button1_Click(object sender, EventArgs e)

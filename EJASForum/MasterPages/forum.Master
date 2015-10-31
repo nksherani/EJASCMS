@@ -12,15 +12,22 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <%Response.Write("<div class=\"header\"><h1><a href=\"../Pages/home.aspx\">"+Session["forumtitle"]+"</a>"); %>
-        <p style="float:right"><asp:Button ID="btnShowLogin" runat="server" Text="Login" OnClick="btnShowLogin_Click" />
-        <% 
+        <%
+            Response.Write("<div class=\"header\"><h1><a href=\"../Pages/home.aspx\">"+Session["forumtitle"]+"</a>");
+            
+            %>
+        <p style="float:right">
+            <asp:Label ID="lblHelloText" runat="server" Text="Hello Guest"></asp:Label><asp:Button ID="btnShowLogin" runat="server" Text="Login" OnClick="btnShowLogin_Click" />
+        
+            <% 
             Response.Write("</h1>");
-                 %>
+             %>
+            
         <asp:Login ID="Login1" runat="server" Visible="False" CreateUserText="Register" CreateUserUrl="~/Pages/Registration.aspx" DestinationPageUrl="~/Pages/home.aspx" PasswordRecoveryText="Forgot Password?" PasswordRecoveryUrl="~/Pages/PasswordRecovery.aspx" OnAuthenticate="Login1_Authenticate"></asp:Login></p>
         <% 
             Response.Write("</div>");
                  %>
+            
             <asp:ContentPlaceHolder ID="bodyTop" runat="server">
         
         </asp:ContentPlaceHolder>

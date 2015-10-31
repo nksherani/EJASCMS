@@ -24,8 +24,11 @@ namespace EJASForum.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!(Convert.ToInt32(Session["userid"]) > 0))
+                Response.Redirect("../Pages/Registration.aspx");
             if (IsPostBack)
                 return;
+            
             reply_pages = 1;
             NReplies = new List<ForumReply>();
             int threadid=Convert.ToInt32(Request.QueryString["threadid"]);

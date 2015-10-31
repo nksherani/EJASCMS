@@ -16,7 +16,6 @@ namespace EJASForum.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             Nthreads = new List<ForumThread>();
-            Session["userid"] = 1;
             EJASForum = new Forum();
             Session["forumid"] = EJASForum.ForumId;
         }

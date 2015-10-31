@@ -14,7 +14,7 @@ namespace EJASForum.CPanel
         {
             if (IsPostBack)
                 return;
-            Session["forumid"] = 1;
+            //Session["forumid"] = 1;
             drpCategories.DataSource = ForumCategory.GetAllCategoryNames(Convert.ToInt32(Session["forumid"]));
             drpCategories.DataBind();
 
@@ -22,7 +22,7 @@ namespace EJASForum.CPanel
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Session["userid"] = 1;
+            //Session["userid"] = 1;
             int published=0;
             if (drpPublish1.SelectedIndex == 0)
                 published = 1;

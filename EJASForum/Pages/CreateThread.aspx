@@ -3,11 +3,13 @@
     <script src="../Scripts/jquery-1.11.1.min.js"></script>
     <script src="../Scripts/jquery-te-1.4.0.min.js"></script>
     <link href="../Styling/jquery-te-1.4.0.css" rel="stylesheet" />
-    <link href="../Styling/demo.css" rel="stylesheet" />
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="bodyTop" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="body" runat="server">
+    <h1>Create A New Thread:</h1>
+    <asp:Label ID="Label4" runat="server" Text="Title" Width="200"></asp:Label>
     <asp:TextBox ID="txtTitle" runat="server" Width="545px"></asp:TextBox>
     <br />
     <asp:Label ID="Label1" runat="server" Text="Select Category" Width="200px"></asp:Label>
