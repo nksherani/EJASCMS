@@ -20,15 +20,32 @@ namespace EJASForum.classes
         public string Author;
         public DateTime? DatePublished;
 
+        //update thread
+        public void UpdateThreadIntoDb(bool toggle)
+        {
+            string q1 = "update f_Thread set ThreadTitle='"+ThreadTitle+"', ThreadBody='"+ThreadBody+"', Published="+Published+", DatePublished=@datepublished, DateModified=@datemodified, SectionId="+SectionId+" where ThreadId="+ThreadID;
+            SqlConnection con1 = new SqlConnection(ConfigurationManager.ConnectionStrings["globaldb"].ConnectionString);
+            SqlCommand com1 = new SqlCommand(q1,con1);
+            //com1.CommandType = System.Data.CommandType.Text;
+            //com1.Parameters.AddWithValue("@threadtitle",ThreadTitle);
+            //com1.Parameters.AddWithValue("@threadbody", ThreadBody);
+            //com1.Parameters.AddWithValue("@published", Published);
+            if(toggle)
+            com1.Parameters.AddWithValue("@datepublished", DateTime.Now);
+            else
+                com1.Parameters.AddWithValue("@datepublished", DBNull.Value);
+            com1.Parameters.AddWithValue("@datemodified", DateTime.Now);
+            //com1.Parameters.AddWithValue("@sectionid", SectionId);
+            con1.Open();
+            com1.ExecuteReader();
+            con1.Close();
+        }
+
         //parametrized constructor
         public ForumThread(string title,string body,string sec,int published,int creator)
         {
-            string q1 = "select SectionId from f_section where SectionTitle='" + sec + "'";
-            SqlConnection con1 = new SqlConnection(ConfigurationManager.ConnectionStrings["globaldb"].ConnectionString);
-            SqlCommand com1 = new SqlCommand(q1, con1);
-            con1.Open();
-            SectionId = Convert.ToInt32(com1.ExecuteScalar());
-            con1.Close();
+            //sectionid
+            SectionId = ForumSection.GetSectionIdbyName(sec);
 
             ThreadTitle = title;
             ThreadBody = body;
@@ -87,7 +104,7 @@ namespace EJASForum.classes
             string q1 = "select * from f_Thread where ThreadId=" + threadid;
             SqlCommand com1 = new SqlCommand(q1, con1);
             SqlDataReader rdr;
-            con1.Open();
+            con1.Open();//
             rdr = com1.ExecuteReader();
             while (rdr.Read())
             {
@@ -97,11 +114,13 @@ namespace EJASForum.classes
                 SectionId = Convert.ToInt32(rdr["SectionId"]);
                 DateCreated = Convert.ToDateTime(rdr["DateCreated"]);
                 DateModified = Convert.ToDateTime(rdr["DateModified"]);
+                if(rdr["DatePublished"]!=DBNull.Value)
                 DatePublished = Convert.ToDateTime(rdr["DatePublished"]);
                 Published = Convert.ToInt32(rdr["Published"]);
                 CreatorId = Convert.ToInt32(rdr["CreatorId"]);
             }
             con1.Close();
+            this.getAuthor();
         }
 
         public List<ForumReply> GetNReplies(int initial, int length)
@@ -125,6 +144,7 @@ namespace EJASForum.classes
                 Reply.Replier = rdr["Replier"].ToString();
                 Reply.DateCreated = Convert.ToDateTime(rdr["DateCreated"]);
                 Reply.DateModified = Convert.ToDateTime(rdr["DateModified"]);
+                if(rdr["DatePublished"]!=DBNull.Value)
                 Reply.DatePublished = Convert.ToDateTime(rdr["DatePublished"]);
                 Reply.Published = 1;
                 Reply.ReplierId = Convert.ToInt32(rdr["ReplierId"]);

@@ -118,9 +118,9 @@ namespace EJASForum.classes
         }
 
         //get all categories from db
-        public static List<string> GetAllCategoryNames(int forumid)
+        public static List<string> GetPublishedCategoryNames(int forumid)
         {
-            string q1 = "select CategoryTitle from f_category where ForumId=" + forumid;
+            string q1 = "select CategoryTitle from f_category where Published=1 and ForumId=" + forumid;
             SqlConnection con1 = new SqlConnection(ConfigurationManager.ConnectionStrings["globaldb"].ConnectionString);
             SqlCommand com1 = new SqlCommand(q1, con1);
             SqlDataReader rdr;

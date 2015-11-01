@@ -5,6 +5,11 @@ a{
     text-decoration:none;
     
 }
+.editor-space{
+    padding-left:20px;
+    padding-right:20px;
+    font-family:'Arial Rounded MT';
+}
 .header,.header>h1>a{
     background-color:rebeccapurple;
     color:whitesmoke;

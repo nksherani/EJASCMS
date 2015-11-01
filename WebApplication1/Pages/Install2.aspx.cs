@@ -58,7 +58,7 @@ namespace WebApplication1.Pages
             string ddl_comment_profile_view = "CREATE VIEW [dbo].[Comment_Profile_view] AS SELECT A.*, p.FirstName as Commentor FROM [Comment] A, [Profiles] p where A.CommentorId=p.Id";
             string ddl_login_v = "CREATE VIEW [dbo].[login_v] AS SELECT l.UserID, l.username, l.Password,p.role FROM login l, Profiles p where p.Id=l.UserID;";
             string ddl_posts_view = "CREATE VIEW [dbo].[Posts_View] AS SELECT P.*, pr.FirstName FROM [Posts] P, Profiles pr where P.AuthorId=pr.Id;";
-            //string ddl_reply_profile_view= "CREATE VIEW [dbo].[Reply_Profile_view] AS SELECT A.*, p.FirstName as Replier FROM [f_reply] A, [Profiles] p where A.ReplierId=p.Id";
+            string ddl_comment_post_profile_v = "CREATE VIEW [dbo].[comment_post_profiel_v] AS SELECT comment.CommentId, Comment.CommentBody, Comment.DateModified, Comment.Published ,Posts.PostTitle,Profiles.FirstName FROM [Comment] Comment, Profiles Profiles, Posts Posts where Comment.PostId=Posts.PostID and Comment.CommentorId=Profiles.Id";
 
             //tables
             globaldata.create_table(ddl_assemblies, "Assemblies");
@@ -77,8 +77,8 @@ namespace WebApplication1.Pages
             globaldata.create_table(ddl_comment_profile_view, "Comment_Profile_View");
             globaldata.create_table(ddl_login_v, "login_v");
             globaldata.create_table(ddl_posts_view, "Posts_view");
-            //globaldata.create_table(ddl_reply_profile_view, "WebsiteDetails");
-
+            globaldata.create_table(ddl_comment_post_profile_v, "comment_post_profile_v");
+            
             //sequences
             globaldata.create_sequence("pages_seq");
             globaldata.create_sequence("users_seq");

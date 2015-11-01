@@ -522,6 +522,7 @@
     <Content Include="CPanel\AllThreads.aspx" />
     <Content Include="CPanel\CreateCategory.aspx" />
     <Content Include="CPanel\CreateSection.aspx" />
+    <Content Include="CPanel\EditThread.aspx" />
     <Content Include="CPanel\ForumDetails.aspx" />
     <Content Include="CPanel\Installer1.aspx" />
     <Content Include="CPanel\ViewAllCategories.aspx" />
@@ -850,6 +851,7 @@
     <Content Include="Pages\beforehome.aspx" />
     <Content Include="Pages\CategoryView.aspx" />
     <Content Include="Pages\CreateThread.aspx" />
+    <Content Include="Pages\EditThread.aspx" />
     <Content Include="Pages\home.aspx" />
     <Content Include="Pages\MyProfile.aspx" />
     <Content Include="Pages\OthersProfiles.aspx" />
@@ -935,6 +937,13 @@
     <Compile Include="CPanel\CreateSection.aspx.designer.cs">
       <DependentUpon>CreateSection.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CPanel\EditThread.aspx.cs">
+      <DependentUpon>EditThread.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CPanel\EditThread.aspx.designer.cs">
+      <DependentUpon>EditThread.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CPanel\ForumDetails.aspx.cs">
       <DependentUpon>ForumDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1018,6 +1027,13 @@
     </Compile>
     <Compile Include="Pages\CreateThread.aspx.designer.cs">
       <DependentUpon>CreateThread.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditThread.aspx.cs">
+      <DependentUpon>EditThread.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\EditThread.aspx.designer.cs">
+      <DependentUpon>EditThread.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>

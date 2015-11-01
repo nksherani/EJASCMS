@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="../MasterPages/forum.Master" AutoEventWireup="true" CodeBehind="CreateThread.aspx.cs" Inherits="EJASForum.Pages.CreateThread" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/forum.Master" CodeBehind="EditThread.aspx.cs" Inherits="EJASForum.Pages.EditThread" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../Scripts/jquery-1.11.1.min.js"></script>
     <script src="../Scripts/jquery-te-1.4.0.min.js"></script>
@@ -23,7 +23,7 @@
     </asp:DropDownList>
     <br />
     <asp:Label ID="Label3" runat="server" Text="Publish" Width="200px"></asp:Label>
-    <asp:DropDownList ID="drpPublish" runat="server" Width="200px">
+    <asp:DropDownList ID="drpPublish" runat="server" Width="200px" OnSelectedIndexChanged="drpPublish_SelectedIndexChanged">
         <asp:ListItem>Yes</asp:ListItem>
         <asp:ListItem>No</asp:ListItem>
     </asp:DropDownList>

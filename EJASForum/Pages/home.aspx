@@ -14,7 +14,7 @@
                 {
 
                     Response.Write("<div class=threadtitle><h3><a href=\"ThreadView.aspx?threadid="+thr.ThreadID+"&reply=1&section="+sec.SectionTitle+"&category="+v.CategoryTitle+"\">"+thr.ThreadTitle+"</a></h3></div>");
-                    thr.getAuthor();
+                    //thr.getAuthor();
 
                     Response.Write("<div class=thread-body>"+thr.ThreadBody+"</div>");
 

@@ -32,6 +32,11 @@ namespace EJASForum.classes
             string ddl_f_Thread = "CREATE TABLE [dbo].[f_Thread] ( [ThreadId] INT IDENTITY (1, 1) NOT NULL, [ThreadTitle] VARCHAR (100) NULL, [ThreadBody] VARCHAR (5000) NULL, [SectionId] INT NULL, [DateCreated] DATETIME NULL, [DateModified] DATETIME NULL, [CreatorID] INT NULL, [Published] INT NULL, [DatePublished] DATETIME NULL, PRIMARY KEY CLUSTERED ([ThreadId] ASC) );";
             create_table(ddl_f_Thread, "f_Thread");
 
+            string ddl_reply_profile_view= "CREATE VIEW [dbo].[Reply_Profile_view] AS SELECT A.*, p.FirstName as Replier FROM [f_reply] A, [Profiles] p where A.ReplierId=p.Id";
+            create_table(ddl_reply_profile_view, "WebsiteDetails");
+
+
+
         }
 
         //create tables using ddl

@@ -15,7 +15,7 @@ namespace EJASForum.CPanel
             if (IsPostBack)
                 return;
             //Session["forumid"] = 1;
-            drpCategories.DataSource = ForumCategory.GetAllCategoryNames(Convert.ToInt32(Session["forumid"]));
+            drpCategories.DataSource = ForumCategory.GetPublishedCategoryNames(Convert.ToInt32(Session["forumid"]));
             drpCategories.DataBind();
 
         }

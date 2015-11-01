@@ -93,11 +93,14 @@ namespace EJASForum.classes
                 } 
                 thread.SectionId = Convert.ToInt32(rdr["SectionID"]);
                 thread.DateCreated = Convert.ToDateTime(rdr["DateCreated"]);
-                thread.DateModified = Convert.ToDateTime(rdr["DateModified"]);
+                if (rdr["DateModified"] != DBNull.Value)
+                    thread.DateModified = Convert.ToDateTime(rdr["DateModified"]);
+                if(rdr["DatePublished"]!=DBNull.Value)
                 thread.DatePublished = Convert.ToDateTime(rdr["DatePublished"]);
                 thread.Published = 1;
                 thread.CreatorId = Convert.ToInt32(rdr["CreatorId"]);
-                if(n >= initial && n <= initial+length-1)//improve efficiency
+                thread.getAuthor();
+                if (n >= initial && n <= initial+length-1)//improve efficiency
                 NThreads.Add(thread);
                 n++;
             }
@@ -146,6 +149,37 @@ namespace EJASForum.classes
             }
             con1.Close();
             return catlist;
+        }
+
+        //get section id by name
+        public static int GetSectionIdbyName(string sec)
+        {
+            int SectionId;
+            string q1 = "select SectionId from f_section where SectionTitle='" + sec + "'";
+            SqlConnection con1 = new SqlConnection(ConfigurationManager.ConnectionStrings["globaldb"].ConnectionString);
+            SqlCommand com1 = new SqlCommand(q1, con1);
+            con1.Open();
+            SectionId = Convert.ToInt32(com1.ExecuteScalar());
+            con1.Close();
+            return SectionId;
+        }
+        //not used
+        //get section by id
+        public static string GetSectionbyId(int id)
+        {
+            string q1 = "select SectionTitle from f_section where SectionId=" + id;
+            SqlConnection con1 = new SqlConnection(ConfigurationManager.ConnectionStrings["globaldb"].ConnectionString);
+            SqlCommand com1 = new SqlCommand(q1, con1);
+            SqlDataReader rdr;
+            string sectionName = "";
+            con1.Open();
+            rdr = com1.ExecuteReader();
+            while (rdr.Read())
+            {
+                sectionName=rdr[0].ToString();
+            }
+            con1.Close();
+            return sectionName;
         }
     }
 }
